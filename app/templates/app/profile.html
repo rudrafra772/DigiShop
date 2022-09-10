@@ -1,0 +1,108 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Profile{% endblock title %}
+{% block main-content %}
+
+<br><br><br><br><br>
+<!--<div class="container my-5" >
+ <div class="row">
+  <h3>Welcome <span class="text-capitalize">{{request.user}}</span></h3>
+  <div class="col-sm-2 border-end">
+   <ul class="list-unstyled">
+    <li class="d-grid"><a href="{% url 'profile' %}" class="btn {{active}}">Profile</a></li>
+    <li class="d-grid"><a href="{% url 'address' %}" class="btn">Address</a></li>
+   </ul>
+  </div>
+  <div class="col-sm-8 offset-sm-1">
+   <form action="" method="post">
+     {% csrf_token %}
+     {% for fm in form %}
+
+     <div class="form-group col-lg-6 mb-3">
+       {{fm.label_tag}}{{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
+     </div>
+
+     {% endfor %}
+
+     <div class="col-12 mt-3">
+       <button class="btn btn-primary" type="submit">Submit</button>
+     </div>
+     
+
+   </form>
+
+   {% if messages %}
+   
+   {% for message in messages %}
+    <p {% if message.tags %}class="alert alert-{{message.tags}} mb-5" {% endif %}>{{message}}</p>
+   {% endfor %}
+
+   {% endif %}
+
+  </div>
+ </div>
+</div>-->
+  <div class="flex-w flex-sb-m p-b-52" style="margin-left: 100px;">
+    <div class="flex-w flex-l-m filter-tope-group m-tb-10">
+      <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter=".profile">
+        profile
+      </button>
+      <a href="{% url 'address' %}" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 " data-filter=".address">
+        address
+      </a>
+    </div>
+  </div>
+  <div class="row isotope-grid" style="margin-left: 100px;">
+    <div class="col-sm-6 offset-sm-1 isotope-item profile">
+      <!-- Block2 -->
+        <form action="" method="post">
+          {% csrf_token %}
+          {% for fm in form %}
+    
+          <div class="form-group bor8 m-b-30c">
+            {{fm.label_tag}}{{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
+          </div>
+    
+          {% endfor %}
+    
+          <div class="col-12 mt-3">
+            <button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" type="submit" onclick="loadpage()">Submit</button>
+          </div> 
+        </form>
+    
+        {% if messages %}
+        {% for message in messages %}
+        <p {% if message.tags %}class="alert alert-{{message.tags}} mb-5" {% endif %}>{{message}}</p>
+        {% endfor %}
+        visit address!!!
+        {% endif %}
+    </div>    
+      <div class="col-sm-4 offset-sm-1  isotope-item ">
+      <!-- Block2 -->
+      {% for ad in addr %}
+      <div class="card">
+              <div class="card-body">
+                  <h3>Address {{forloop.counter}}</h3>
+                  <p>Name: {{ad.name}}</p>
+                  <p>Address 1: {{ad.locality}}</p>
+                  <p>Address 2: {{ad.city}}</p>
+                  <p>State: {{ad.zipcode}}</p>
+              </div>
+      </div>
+      <br>
+      {% endfor %}
+      </div>
+      
+</div>
+
+  </div>
+</div>
+<script>
+  function loadpage(){
+        location.href = "address.html";
+  }
+</script>
+<br>
+<br>
+
+{% endblock main-content %}
