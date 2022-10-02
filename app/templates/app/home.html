@@ -5,32 +5,52 @@
 {% load humanize %}
 <!--Banner Slider-->
   <style>
+	@media screen and (max-width: 480px) {
+	.s1{
+		margin-top: 70px;
+    }
+    .s2{
+		margin-top: 70px;
+    }
+    .s3{
+		margin-top: 70px;
+    }	
+	.cus2{
+		color:#00ad5f ;
+	}
+	.cus{
+		color:#4272d7 ;
+	}
+	}
     .s1{
       background-image: url("{% static 'app/images/watch (2).jpg' %}");
+	  height: 7in;
     }
     .s2{
       background-image: url("{% static 'app/images/cart.jpg' %}");
+	  height: 7in;
     }
     .s3{
       background-image: url("{% static 'app/images/slide-01.jpg' %}");
+	  height: 7in;
     }
     
   </style>
 	<!-- Slider -->
 	<section class="section-slide" >
 		<div class="wrap-slick1" >
-			<div class="slick1">
-				<div class="item-slick1 s1">
+			<div class="slick1" >
+				<div class="item-slick1 s1" style="z-index: 5;">
 					<div class="container h-full">
 						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
 							<div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
-								<span class="ltext-101 cl2 respon2">
+								<span class="ltext-101 cl2 respon2 cus">
 									Electronics Collection 2022
 								</span>
 							</div>
 								
 							<div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="800">
-								<h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">
+								<h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1 cus2">
 									NEW SEASON
 								</h2>
 							</div>

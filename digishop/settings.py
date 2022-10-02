@@ -24,10 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-824)znt%u6^6)spm@@f(^ep9ncey7tds7&x=66+r28(dt+97#z'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['digishop772.pythonanywhere.com']
-CSRF_TRUSTED_ORIGINS = ['https://digishop772.pythonanywhere.com']
+ALLOWED_HOSTS = ['ee2e-27-54-168-237.in.ngrok.io','127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://ee2e-27-54-168-237.in.ngrok.io']
 
 # Application definition
 
