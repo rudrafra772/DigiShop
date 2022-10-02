@@ -2,29 +2,36 @@
 {% load static %}
 {% block title %}Buy Now{% endblock title %}
 {% block main-content %}
-<div class="container">
- <div class="row mt-5">
-  <div class="col-sm-6">
+<div class="container" style="margin-bottom: 30px; overflow-x:hidden ;">
+ <div class="row "style="margin-top: 80px;">
+  <div class="col-lg-6 py-5" >
     <h4>Order Summary</h4>
     <hr>
     {% for item in cart_items %}
       <div class="card mb-2">
-        <div class="card-body">
-          <h5>Product: {{item.product.title}}</h5>
-          <p>Quantity: {{item.quantity}}</p>
-          <p class="fw-bold">Price: {{item.total_cost}}</p>
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="card-body">
+            <h5>Product: {{item.product.title}}</h5>
+            <p>Quantity: {{item.quantity}}</p>
+            <p class="fw-bold">Price: {{item.total_cost}}</p> 
+          </div>
         </div>
+        <div class="col-lg-4 py-2">
+          <img src="{{item.product.product_image.url}}" alt="Img" height="80" width="80">
+        </div>
+      </div>
       </div>
       {% endfor %}
       <p class="fw-bold">Total Cost + Rs. 70.00 Shipping = {{totalamount}}</p>
     <small>Term and Condition: Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, ullam saepe! Iure optio repellat dolor velit, minus rem. Facilis cumque neque numquam laboriosam, accusantium adipisci nisi nihil in et quis?</small>
   </div>
-  <div class="col-sm-4 offset-sm-1">
+  <div class="col-lg-5 mx-3 py-5">
     <h4>Select Shipping Address</h4>
     <hr>
     <form action="/paymentdone">
       {% for ad in add %}
-      <div class="form-check ">
+      <div class="form-check">
         <input class="form-check-input" type="radio" value="{{ad.id}}" name="custid" id="custadd{{forloop.counter}}">
         <label class="form-check-label fw-bold" for="">
           Address: {{forloop.counter}} </label>
@@ -37,7 +44,7 @@
       </div>
         {% endfor %}
         <div class="text-end">
-          <button type="submit" class="btn btn-warning mt-3 px-5 fw-bold">Continue</button>
+          <button type="submit" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">Continue</button>
         </div>
       </form>
     </div>

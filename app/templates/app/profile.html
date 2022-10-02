@@ -57,14 +57,15 @@
       <!-- Block2 -->
         <form action="" method="post">
           {% csrf_token %}
+          <div class="form-group bor8 m-b-30c py-3 px-3">
           {% for fm in form %}
     
-          <div class="form-group bor8 m-b-30c">
+          
             {{fm.label_tag}}{{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
-          </div>
+          
     
           {% endfor %}
-    
+        </div>
           <div class="col-12 mt-3">
             <button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" type="submit" onclick="loadpage()">Submit</button>
           </div> 
