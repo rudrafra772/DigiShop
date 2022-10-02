@@ -18,8 +18,9 @@ from django.utils.decorators import method_decorator
 
 def cart_item(request,format=None):
     total_item = 0
-    total_item = len(Cart.objects.filter(user = request.user))
-    return total_item
+    if request.user.is_authenticated:
+        total_item = len(Cart.objects.filter(user = request.user))
+        return total_item
 
 
 class ProductView(View):
