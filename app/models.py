@@ -110,6 +110,10 @@ class OrderPlaced(models.Model):
     order_date = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=50, choices=STATUS_CHOICES,default='Pending')
 
+    @property
+    def total_cost(self):
+        return 70+(self.quantity * self.product.discounted_price)
+
 
 
 # Create your models here.

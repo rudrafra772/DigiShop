@@ -107,15 +107,34 @@
                                 </div>
                             </div>
 
-                            <div class="flex-w flex-r-m p-b-10">
-                                <div class="size-204 flex-w flex-m respon6-next">
-                                    
-                                    <form action="/add-to-cart" class="d-inline">
-                                        <input type="hidden" name="prod_id" value="{{product.id}}" id="prod_id">
-                                        <button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail" type="submit">
-                                        Add to cart
-                                        </button>
-                                    </form>
+                            <div class="flex-w flex-r-m p-b-10 mt-4">
+                                <div class="size-204 flex-w flex-m respon6-next d-inline">
+
+                                        
+                                            {% if request.user.is_authenticated %}
+                                            {% if item_in_cart  %}
+                                                <a href="{% url 'showcart' %}" class="flex-c-m  stext-101 cl0 bg5 bor1 hov-btn1 p-lr-15 trans-04 p-tb-10 d-inline">Go TO Cart</a>
+                                                <a href="{% url 'checkout' %}" class="flex-c-m  stext-101 cl0 bg-warning text-dark bor1 hov-btn1 p-lr-15 p-tb-10 trans-04 d-inline">Buy Now</a>
+                                            {% else %}
+        
+                                            <form action="/add-to-cart" class="d-inline">
+                                                <input type="hidden" name="prod_id" value="{{product.id}}" id="prod_id">
+                                                <button class="stext-101 cl0  bg1 bor1 hov-btn1 p-lr-15 trans-04 p-tb-10 " type="submit">
+                                                Add to cart
+                                                </button>
+                                            </form>
+                                            <a href="{% url 'checkout' %}" class="flex-c-m stext-101 cl0 size-101 bg-warning  bor1 hov-btn1 p-lr-15 p-tb-10 trans-04 d-inline">Buy Now</a>
+                                            {% endif %}
+                                            {% endif %}
+                                            
+                                            {% if not request.user.is_authenticated %}
+                                                <form action="/add-to-cart" class="d-inline">
+                                                <input type="hidden" name="prod_id" value="{{product.id}}" id="prod_id">
+                                                <button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04" type="submit">
+                                                Add to cart
+                                                </button>
+                                            </form>
+                                            {% endif %}
                                 </div>
                             </div>	
                         </div>
