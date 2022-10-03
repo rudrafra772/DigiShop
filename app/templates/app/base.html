@@ -64,15 +64,15 @@
               <ul class="main-menu">
                 <li class="active-menu">
                   <a href="/">Home</a>
-                  <ul class="sub-menu">
-                    <li><a href="index.html">Mobile</a></li>
-                    <li><a href="home-02.html">Laptop</a></li>
-                    <li><a href="home-03.html">Top Weare</a></li>
-                  </ul>
                 </li>
   
                 <li>
                   <a href="product.html">Shop</a>
+                  <ul class="sub-menu">
+                    <li><a href="{% url 'mobile' %}">Mobile</a></li>
+                    <li><a href="home-02.html">Laptop</a></li>
+                    <li><a href="home-03.html">Top Weare</a></li>
+                  </ul>
                 </li>
 
   
@@ -249,14 +249,14 @@
 
 					<ul>
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Women
+							<a href="{% url 'mobile' %}" class="stext-107 cl7 hov-cl1 trans-04">
+								Mobile
 							</a>
 						</li>
 
 						<li class="p-b-10">
 							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Men
+								Laptop
 							</a>
 						</li>
 
@@ -281,7 +281,7 @@
 
 					<ul>
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+							<a href="{% url 'orders' %}" class="stext-107 cl7 hov-cl1 trans-04">
 								Track Order
 							</a>
 						</li>

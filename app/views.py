@@ -86,7 +86,7 @@ def show_cart(request):
             return render(request, 'app/addtocart.html',{'carts':cart, 'totalamount':totalamoutn, 'amount':amount,
         'cart_item':cart_item(request)})
         else:
-            return render(request, 'app/emptycart.html')
+            return render(request, 'app/emptycart.html',{'cart_item':cart_item(request)})
     
 
 def plus_cart(request):
